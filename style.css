@@ -1,0 +1,177 @@
+/* Add a Google Fonts import for a creative font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Orbitron', Arial, sans-serif;
+    color: #FFD700;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px #000, 0 0 10px #FFD700;
+}
+
+.start-button {
+    padding: 18px 48px;
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+    color: #fff;
+    border: none;
+    border-radius: 32px;
+    cursor: pointer;
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(221,36,118,0.2);
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+.start-button:hover {
+    background: linear-gradient(90deg, #dd2476 0%, #ff512f 100%);
+    transform: scale(1.07);
+    box-shadow: 0 8px 24px rgba(221,36,118,0.3);
+}
+
+.ar-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+}
+
+.ar-view.hidden {
+    display: none;
+}
+
+#camera, #overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exit-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 36px;
+    background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+    color: white;
+    border: none;
+    border-radius: 32px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(221,36,118,0.2);
+    z-index: 1000;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.exit-button:hover {
+    background: linear-gradient(90deg, #dd2476 0%, #ff512f 100%);
+    transform: scale(1.05);
+}
+
+.controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 12px;
+}
+
+.music-button, .photo-button, .camera-button {
+    width: 54px;
+    height: 54px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #FFD700 0%, #ff512f 100%);
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(255,215,0,0.15);
+    color: #232526;
+    font-family: 'Orbitron', Arial, sans-serif;
+}
+
+.music-button:hover, .photo-button:hover, .camera-button:hover {
+    transform: scale(1.12);
+    box-shadow: 0 4px 16px rgba(255,215,0,0.25);
+}
+
+.music-button.playing {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.13); }
+    100% { transform: scale(1); }
+}
+
+.mask-controls {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 18px;
+    z-index: 1000;
+}
+
+.mask-button {
+    padding: 14px 32px;
+    background: linear-gradient(90deg, #232526 0%, #FFD700 100%);
+    color: #232526;
+    border: none;
+    border-radius: 32px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Orbitron', Arial, sans-serif;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(255,215,0,0.12);
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.mask-button:hover {
+    background: linear-gradient(90deg, #FFD700 0%, #232526 100%);
+    color: #FFD700;
+    transform: scale(1.08);
+}
+
+.mask-button.active {
+    background: linear-gradient(90deg, #FFD700 0%, #ff512f 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(255,215,0,0.25);
+    transform: scale(1.12);
+} 
